@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: binarycalculatorwebapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: binarycalculatorwebapp
+  template:
+    metadata:
+      labels:
+        app: binarycalculatorwebapp
+    spec:
+      containers:
+        - name: binarycalculatorwebapp
+          image: northamerica-northeast2-docker.pkg.dev/lab-3-452215/lab3-part1/binarycalculatorwebapp
+          ports:
+            - containerPort: 8080  # Default port for Spring Boot
+              name: calculator
+          
